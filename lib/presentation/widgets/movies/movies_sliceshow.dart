@@ -9,12 +9,19 @@ class MoviesSliceShow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final color = Theme.of(context).colorScheme;
     return SizedBox(
       height: 210,
       width: double.infinity,
       child: Swiper(
         itemCount: movies.length,
         viewportFraction: 0.8,
+        pagination: SwiperPagination(
+            margin: const EdgeInsets.only(top: 0),
+            builder: DotSwiperPaginationBuilder(
+              activeColor: color.primary,
+              color: color.secondary,
+            )),
         scale: 0.9,
         autoplay: true,
         itemBuilder: (context, index) => _Slide(movie: movies[index]),
@@ -45,6 +52,9 @@ class _Slide extends StatelessWidget {
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(movie.backdropPath,
-                    fit: BoxFit.cover, width: double.infinity))));
+                    loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return const Center(child: CircularProgressIndicator());
+                }, fit: BoxFit.cover, width: double.infinity))));
   }
 }
