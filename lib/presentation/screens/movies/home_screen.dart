@@ -39,10 +39,15 @@ class HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   _HomeView(List<Movie> nowPlayingMovies) {
+    final initialLoading = ref.watch(initialLoadingProvider);
+    if (initialLoading) {
+      return const FullScreenLoader();
+    }
     final slidePlayingMovies = ref.watch(moviesSlidesShowProvider);
     final popularMovies = ref.watch(popularMoviesProvider);
     final topRatedMovies = ref.watch(topRatedMoviesProvider);
     final upComingMovies = ref.watch(upComingMoviesProvider);
+
     return CustomScrollView(slivers: [
       const SliverAppBar(
         floating: true,
@@ -85,7 +90,7 @@ class HomeScreenState extends ConsumerState<HomeScreen> {
                   ref.read(upComingMoviesProvider.notifier).loadNextPage(),
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Expanded(
             //   child: ListView.builder(
             //     itemCount: nowPlayingMovies.length,
