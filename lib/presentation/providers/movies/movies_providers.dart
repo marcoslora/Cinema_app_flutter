@@ -23,6 +23,7 @@ final upComingMoviesProvider =
   final fetchMoreMovies = ref.watch(movieRepositoryProvider).getUpcoming;
   return MoviesNotifier(fetchMoreMovies: fetchMoreMovies);
 });
+
 typedef MoviesCallback = Future<List<Movie>> Function({int page});
 
 class MoviesNotifier extends StateNotifier<List<Movie>> {

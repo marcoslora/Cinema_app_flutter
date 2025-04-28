@@ -5,19 +5,20 @@ import 'package:go_router/go_router.dart';
 final appRouter = GoRouter(
   routes: <RouteBase>[
     GoRoute(
-      name: HomeScreen.routeName,
-      path: '/',
-      builder: (context, state) => const HomeScreen(),
-    ),
-    GoRoute(
-      name: MovieScreen.routeName,
-      path: '/movie/:id',
-      builder: (context, state) {
-        final movieId = state.pathParameters['id'] ?? 'no-id';
-        return MovieScreen(
-          movieId: 'movieId: $movieId',
-        );
-      },
-    ),
+        name: HomeScreen.routeName,
+        path: '/',
+        builder: (context, state) => const HomeScreen(),
+        routes: [
+          GoRoute(
+            name: MovieScreen.routeName,
+            path: 'movie/:id',
+            builder: (context, state) {
+              final movieId = state.pathParameters['id'] ?? 'no-id';
+              return MovieScreen(
+                movieId: movieId,
+              );
+            },
+          ),
+        ]),
   ],
 );
