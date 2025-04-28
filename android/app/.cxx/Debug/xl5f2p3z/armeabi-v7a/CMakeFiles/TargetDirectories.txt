@@ -1,0 +1,2 @@
+/Users/mlora/test-projects/flutter/Cinema_app_flutter/android/app/.cxx/Debug/xl5f2p3z/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/mlora/test-projects/flutter/Cinema_app_flutter/android/app/.cxx/Debug/xl5f2p3z/armeabi-v7a/CMakeFiles/rebuild_cache.dir
