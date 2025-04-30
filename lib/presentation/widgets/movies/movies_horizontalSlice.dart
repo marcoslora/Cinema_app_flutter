@@ -124,7 +124,7 @@ class _Slide extends StatelessWidget {
                 ),
                 const SizedBox(width: 3),
                 Text(
-                  movie.voteAverage.toString(),
+                  '${movie.voteAverage.toStringAsFixed(1)}',
                   style: textStyle.bodyMedium?.copyWith(color: Colors.amber),
                 ),
                 const Spacer(),
