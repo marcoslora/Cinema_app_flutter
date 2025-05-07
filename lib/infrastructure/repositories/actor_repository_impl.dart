@@ -2,7 +2,7 @@ import 'package:cinema_app/domain/datasources/actors_datasource.dart';
 import 'package:cinema_app/domain/entities/actor.dart';
 import 'package:cinema_app/domain/repositories/actors_repository.dart';
 
-class ActorRepositoryImpl extends ActorsRepository {
+class ActorRepositoryImpl implements ActorsRepository {
   final ActorsDatasource datasource;
   ActorRepositoryImpl(this.datasource);
 

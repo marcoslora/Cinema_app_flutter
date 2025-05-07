@@ -1,5 +1,7 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../domain/entities/movie.dart';
 
@@ -53,8 +55,16 @@ class _Slide extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(movie.backdropPath,
                     loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress == null) return child;
-                  return const Center(child: CircularProgressIndicator());
+                  if (loadingProgress != null) {
+                    return const Center(
+                        child: CircularProgressIndicator(strokeWidth: 2));
+                  }
+                  return GestureDetector(
+                    onTap: () {
+                      context.push('/movie/${movie.id}');
+                    },
+                    child: FadeIn(child: child),
+                  );
                 }, fit: BoxFit.cover, width: double.infinity))));
   }
 }

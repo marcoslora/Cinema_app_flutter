@@ -1,4 +1,4 @@
-import 'package:cinema_app/config/helpers/numbers_formats.dart';
+import 'package:cinema_app/config/helpers/human_formats.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:go_router/go_router.dart';
@@ -129,7 +129,7 @@ class _Slide extends StatelessWidget {
                 ),
                 const Spacer(),
                 Text(
-                  NumbersFormats.formatNumber(movie.popularity),
+                  HumanFormats.number(movie.popularity),
                   style: textStyle.bodySmall,
                 ),
               ],
